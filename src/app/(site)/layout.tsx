@@ -14,8 +14,11 @@ export default async function SiteLayout({
   return (
     <div className="site-shell site-shell--voicebox">
       <div className="site-shell__frame">
+        <a className="skip-to-content" href="#main-content">
+          본문으로 건너뛰기
+        </a>
         <SiteHeader site={site} />
-        <main className="site-main site-main--voicebox">
+        <main className="site-main site-main--voicebox" id="main-content">
           <div className="site-main__inner">{children}</div>
         </main>
         <SiteFooter signals={signals} site={site} />

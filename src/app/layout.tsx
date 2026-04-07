@@ -25,7 +25,7 @@ const body = Work_Sans({
 
 const mono = Space_Mono({
   display: 'swap',
-  preload: false,
+  preload: true,
   weight: ['400', '700'],
   variable: '--font-mono',
   subsets: ['latin'],

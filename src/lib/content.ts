@@ -139,7 +139,7 @@ const normalizeLife = (doc: RawObject) => ({
   location: asString(doc.location),
 })
 
-const normalizePost = (kind: PostKind, value: unknown): NormalizedPost | null => {
+const normalizePost = (kind: PostKind, value: unknown, includeBody = true): NormalizedPost | null => {
   const doc = asObject(value)
 
   if (!doc) {
@@ -170,7 +170,7 @@ const normalizePost = (kind: PostKind, value: unknown): NormalizedPost | null =>
     tags: Array.isArray(doc.tags)
       ? doc.tags.map(normalizeTag).filter((tag): tag is TagData => Boolean(tag))
       : [],
-    body: (doc.body as RichTextValue | null) || null,
+    body: includeBody ? (doc.body as RichTextValue | null) || null : null,
     seo: normalizeSeo(doc.seo),
     development: kind === 'development' ? normalizeDevelopment(doc) : undefined,
     career: kind === 'career' ? normalizeCareer(doc) : undefined,
@@ -198,7 +198,7 @@ const fetchCollection = async (kind: PostKind, limit = 12) => {
   })
 
   return result.docs
-    .map((doc) => normalizePost(kind, doc))
+    .map((doc) => normalizePost(kind, doc, false))
     .filter((doc): doc is NormalizedPost => Boolean(doc))
 }
 

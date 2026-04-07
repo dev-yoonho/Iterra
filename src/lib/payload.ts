@@ -1,3 +1,4 @@
+import { getPayload } from 'payload'
 import { cache } from 'react'
 
 import { hasPayloadRuntimeEnv } from '@/lib/payloadEnv'
@@ -9,10 +10,7 @@ export const getPayloadClient = cache(async () => {
     return null
   }
 
-  const [{ getPayloadHMR }, { default: config }] = await Promise.all([
-    import('@payloadcms/next/utilities'),
-    import('@payload-config'),
-  ])
+  const { default: config } = await import('@payload-config')
 
-  return getPayloadHMR({ config })
+  return getPayload({ config })
 })
