@@ -1,0 +1,62 @@
+/*
+ * Giscus VoiceBox Theme
+ * Matches the Iterra editorial design system: flat, high-contrast, no radius.
+ */
+
+main {
+  --color-canvas-default: #FAFAFA;
+  --color-canvas-subtle: #F5F5F5;
+  --color-canvas-inset: #F5F5F5;
+  --color-canvas-overlay: #FAFAFA;
+
+  --color-border-default: #D4D4D4;
+  --color-border-muted: #E5E5E5;
+  --color-border-overlay: #0A0A0A;
+
+  --color-fg-default: #0A0A0A;
+  --color-fg-muted: #525252;
+  --color-fg-subtle: #A3A3A3;
+  --color-fg-on-emphasis: #FAFAFA;
+
+  --color-accent-fg: #0A0A0A;
+  --color-accent-emphasis: #0A0A0A;
+  --color-accent-muted: #E5E5E5;
+  --color-accent-subtle: #F5F5F5;
+
+  --color-danger-fg: #EF4444;
+  --color-danger-emphasis: #EF4444;
+  --color-danger-muted: #FEF2F2;
+  --color-danger-subtle: #FEF2F2;
+
+  --color-success-fg: #16A34A;
+  --color-success-emphasis: #16A34A;
+  --color-success-muted: #F0FDF4;
+  --color-success-subtle: #F0FDF4;
+
+  --color-neutral-muted: #E5E5E5;
+  --color-neutral-emphasis-plus: #0A0A0A;
+  --color-neutral-emphasis: #525252;
+
+  --color-btn-primary-bg: #0A0A0A;
+  --color-btn-primary-text: #FAFAFA;
+  --color-btn-primary-border: #0A0A0A;
+  --color-btn-primary-hover-bg: #EF4444;
+  --color-btn-primary-hover-border: #EF4444;
+
+  --borderRadius-medium: 0px;
+
+  color: var(--color-fg-default);
+  font-family: 'Work Sans', -apple-system, 'Segoe UI', Helvetica, sans-serif;
+}
+
+main .gsc-comment-box {
+  border-radius: 0;
+}
+
+main .gsc-comment {
+  border-radius: 0;
+}
+
+main .gsc-timeline-line {
+  background-color: var(--color-border-default);
+}

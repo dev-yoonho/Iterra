@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { AmbientSignals } from '@/components/site/AmbientSignals'
 import { CollectionStrip } from '@/components/site/CollectionStrip'
 import { getContentSnapshot } from '@/lib/content'
 import { collectionConfig, formatKoreanDate } from '@/lib/site'
@@ -45,6 +46,7 @@ export default async function HomePage() {
   return (
     <div className="page-frame page-frame--voicebox page-frame--home">
       <section className="front-page-hero">
+        <AmbientSignals signals={agents} />
         <article className="front-page-story">
           <p className="front-page-story__rubric">
             {heroStory ? `Featured ${collectionConfig[heroStory.kind].label}` : `Front Page / ${home.eyebrow}`}
@@ -64,7 +66,7 @@ export default async function HomePage() {
           </div>
 
           <div className="front-page-story__actions">
-            <Link className="inline-link" href={heroStory?.href || '/archive'}>
+            <Link className="btn-primary" href={heroStory?.href || '/archive'}>
               대표 기록 읽기
             </Link>
           </div>
@@ -93,7 +95,7 @@ export default async function HomePage() {
             <p className="eyebrow">{railLead ? 'Side Feature' : 'Journey Quote'}</p>
             <h2>{railLead?.title || home.journeyQuote}</h2>
             <p>{railLead?.summary || home.archiveNote}</p>
-            <Link className="inline-link" href={railLead?.href || '/about'}>
+            <Link className="btn-primary" href={railLead?.href || '/about'}>
               {railLead ? '이어서 읽기' : '소개 보기'}
             </Link>
           </article>
@@ -127,7 +129,7 @@ export default async function HomePage() {
                 {entry.post ? null : <p>{entry.fallback}</p>}
                 <strong>{entry.post ? formatKoreanDate(entry.post.publishedAt) : '새 기록 대기 중'}</strong>
                 <div className="detail-links">
-                  <Link className="inline-link" href={entry.post?.href || config.href}>
+                  <Link className="btn-primary" href={entry.post?.href || config.href}>
                     {entry.post ? '대표 글 읽기' : '섹션 보러가기'}
                   </Link>
                 </div>
